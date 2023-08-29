@@ -1,7 +1,0 @@
-Executable : /Users/natemac/Library/Android/sdk/cmake/3.18.1/bin/ninja
-arguments : 
--C
-/Users/natemac/Downloads/jammates-miniaudio-nao 2/android/app/.cxx/Debug/36146f6x/arm64-v8a
-androidEntry
-jvmArgs : 
-

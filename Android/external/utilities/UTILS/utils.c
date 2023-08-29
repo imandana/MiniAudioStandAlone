@@ -209,6 +209,56 @@ void MemFree(void *ptr)
     RL_FREE(ptr);
 }
 
+
+// Check file extension
+static bool IsFileExtension(const char *fileName, const char *ext)
+{
+    bool result = false;
+    const char *fileExt;
+
+    if ((fileExt = strrchr(fileName, '.')) != NULL)
+    {
+        if (strcmp(fileExt, ext) == 0) result = true;
+    }
+
+    return result;
+}
+
+// Get pointer to extension for a filename string (includes the dot: .png)
+static const char *GetFileExtension(const char *fileName)
+{
+    const char *dot = strrchr(fileName, '.');
+
+    if (!dot || dot == fileName) return NULL;
+
+    return dot;
+}
+
+// Get filename string without extension (uses static string)
+const char *GetFileNameWithoutExt(const char *filePath)
+{
+    #define MAX_FILENAMEWITHOUTEXT_LENGTH   128
+
+    static char fileName[MAX_FILENAMEWITHOUTEXT_LENGTH] = { 0 };
+    memset(fileName, 0, MAX_FILENAMEWITHOUTEXT_LENGTH);
+
+    if (filePath != NULL) strcpy(fileName, GetFileName(filePath));   // Get filename with extension
+
+    int size = (int)strlen(fileName);   // Get size in bytes
+
+    for (int i = 0; (i < size) && (i < MAX_FILENAMEWITHOUTEXT_LENGTH); i++)
+    {
+        if (fileName[i] == '.')
+        {
+            // NOTE: We break on first '.' found
+            fileName[i] = '\0';
+            break;
+        }
+    }
+
+    return fileName;
+}
+
 // Load data from file into a buffer
 unsigned char *LoadFileData(const char *fileName, unsigned int *bytesRead)
 {

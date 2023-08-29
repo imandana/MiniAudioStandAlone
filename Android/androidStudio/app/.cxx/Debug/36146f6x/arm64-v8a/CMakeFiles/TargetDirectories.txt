@@ -1,4 +1,0 @@
-/Users/natemac/Downloads/jammates-miniaudio-nao 2/android/app/.cxx/Debug/36146f6x/arm64-v8a/CMakeFiles/androidEntry.dir
-/Users/natemac/Downloads/jammates-miniaudio-nao 2/android/app/.cxx/Debug/36146f6x/arm64-v8a/CMakeFiles/rebuild_cache.dir
-/Users/natemac/Downloads/jammates-miniaudio-nao 2/android/app/.cxx/Debug/36146f6x/arm64-v8a/CMakeFiles/edit_cache.dir
-/Users/natemac/Downloads/jammates-miniaudio-nao 2/android/app/.cxx/Debug/36146f6x/arm64-v8a/CMakeFiles/cpufeatures.dir
