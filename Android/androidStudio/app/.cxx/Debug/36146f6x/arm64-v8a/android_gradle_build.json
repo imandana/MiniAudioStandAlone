@@ -1,0 +1,44 @@
+{
+  "buildFiles": [
+    "/Users/natemac/Downloads/jammates-miniaudio-nao 2/android/app/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/natemac/Library/Android/sdk/cmake/3.18.1/bin/ninja",
+      "-C",
+      "/Users/natemac/Downloads/jammates-miniaudio-nao 2/android/app/.cxx/Debug/36146f6x/arm64-v8a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/natemac/Library/Android/sdk/cmake/3.18.1/bin/ninja",
+    "-C",
+    "/Users/natemac/Downloads/jammates-miniaudio-nao 2/android/app/.cxx/Debug/36146f6x/arm64-v8a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "androidEntry::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "androidEntry",
+      "output": "/Users/natemac/Downloads/jammates-miniaudio-nao 2/build/app/intermediates/cxx/Debug/36146f6x/obj/arm64-v8a/libandroidEntry.so",
+      "runtimeFiles": []
+    },
+    "cpufeatures::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "cpufeatures",
+      "output": "/Users/natemac/Downloads/jammates-miniaudio-nao 2/android/app/.cxx/Debug/36146f6x/arm64-v8a/libcpufeatures.a"
+    }
+  },
+  "toolchains": {
+    "toolchain": {
+      "cCompilerExecutable": "/Users/natemac/Library/Android/sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang.lld",
+      "cppCompilerExecutable": "/Users/natemac/Library/Android/sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++.lld"
+    }
+  },
+  "cFileExtensions": [
+    "c"
+  ],
+  "cppFileExtensions": []
+}

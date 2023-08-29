@@ -1,0 +1,68 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.6.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "RaudioProject",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "androidEntry::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-androidEntry-Debug-12b252c5e9eb40db09d1.json",
+					"name" : "androidEntry",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cpufeatures::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cpufeatures-Debug-6a8f016f5cd86496f12e.json",
+					"name" : "cpufeatures",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/natemac/Downloads/jammates-miniaudio-nao 2/android/app/.cxx/Debug/36146f6x/arm64-v8a",
+		"source" : "/Users/natemac/Downloads/jammates-miniaudio-nao 2/android/app"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 1
+	}
+}
