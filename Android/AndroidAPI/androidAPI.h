@@ -22,16 +22,6 @@
 
 #include <stdio.h>              // Required for: printf()
 
-#if defined(_WIN32)
-    #include <conio.h>          // Windows only, no stardard library
-#else
-    // Required for kbhit() function in non-Windows platforms
-    #include <stdio.h>
-    #include <termios.h>
-    #include <unistd.h>
-    #include <fcntl.h>
-#endif
-
 #define NUM_OF_MUSIC	11
 
 JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved);
@@ -56,11 +46,6 @@ struct MusicListTogether
 
 struct MusicListTogether musicListTogether;
 
-/* Music bassAudio;
-Music drumAudio;
-Music pianoAudio;
-
- */
 void InitDeviceMiniaudio();
 void ExecutePlayer();
 
@@ -73,8 +58,14 @@ void ResumePlayer();
 
 void CleanResource();
 
+
+//////// Android Function
+
 JNIEXPORT void JNICALL
 Java_com_jenggotmalam_MiniAudioPlayer_AddMusicStream(JNIEnv *env, jobject obj, jstring pathName) ;
+
+JNIEXPORT void JNICALL
+Java_com_jenggotmalam_MiniAudioPlayer_AddMusicStreamFromStorage(JNIEnv *env, jobject obj, jstring pathName) ;
 
 JNIEXPORT void JNICALL
 Java_com_jenggotmalam_MiniAudioPlayer_RemoveMusicStream(JNIEnv *env, jobject obj, jint pos) ;

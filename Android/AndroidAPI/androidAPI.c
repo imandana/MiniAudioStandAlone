@@ -6,10 +6,6 @@
 //----------------------------------------------------------------------------------
 // Module Functions Declaration
 //----------------------------------------------------------------------------------
-#if !defined(_WIN32)
-static int kbhit(void);             // Check if a key has been pressed
-static char getch();                // Get pressed character
-#endif
 
 // Android log function wrappers
 static const char* kTAG = "MINIAUDIO_PLAYER";
@@ -148,40 +144,6 @@ void CleanResource()
 //----------------------------------------------------------------------------------
 // Module Functions Definition
 //----------------------------------------------------------------------------------
-#if !defined(_WIN32)
-// Check if a key has been pressed
-static int kbhit(void)
-{
-    struct termios oldt, newt;
-    int ch;
-    int oldf;
-
-    tcgetattr(STDIN_FILENO, &oldt);
-    newt = oldt;
-    newt.c_lflag &= ~(ICANON | ECHO);
-    tcsetattr(STDIN_FILENO, TCSANOW, &newt);
-    oldf = fcntl(STDIN_FILENO, F_GETFL, 0);
-    fcntl(STDIN_FILENO, F_SETFL, oldf | O_NONBLOCK);
-
-    ch = getchar();
-
-    tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
-    fcntl(STDIN_FILENO, F_SETFL, oldf);
-
-    if (ch != EOF)
-    {
-        ungetc(ch, stdin);
-        return 1;
-    }
-
-    return 0;
-}
-
-// Get pressed character
-static char getch() { return getchar(); }
-#endif
-
-
 
 JNIEXPORT void JNICALL
 Java_com_jenggotmalam_MiniAudioPlayer_InitAssetManagerMini(JNIEnv *env, jobject obj, jobject assetManager, jstring pathObj)
@@ -205,6 +167,23 @@ Java_com_jenggotmalam_MiniAudioPlayer_AddMusicStream(JNIEnv *env, jobject obj,  
 		return;
 	
 	LOGI("GetStringUTFChars(env, pathName, NULL);");
+    const char *str = (*env)->GetStringUTFChars(env, pathName, NULL);
+	
+	LOGI("ILoadMusicStream( str ); ");
+	musicListTogether.music[ musicListTogether.indexToPlay[ musicListTogether.count ] ] = LoadMusicStream( str );
+	
+	musicListTogether.count++;
+	
+	LOGI("ReleaseStringUTFChars(env, pathName, str); ");
+	(*env)->ReleaseStringUTFChars(env, pathName, str);
+}
+
+JNIEXPORT void JNICALL
+Java_com_jenggotmalam_MiniAudioPlayer_AddMusicStreamFromStorage(JNIEnv *env, jobject obj,  jstring pathName)
+{
+	if( musicListTogether.count > NUM_OF_MUSIC)
+		return;
+	
     const char *str = (*env)->GetStringUTFChars(env, pathName, NULL);
 	
 	LOGI("ILoadMusicStream( str ); ");
