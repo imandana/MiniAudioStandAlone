@@ -1,0 +1,69 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.6.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "RaudioProject",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "androidAPI::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-androidAPI-Debug-f8c9f1dab719f8ed55d5.json",
+					"name" : "androidAPI",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cpufeatures::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cpufeatures-Debug-90888b7deba3bd1f3cd2.json",
+					"name" : "cpufeatures",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/Imandana/Project/NAUFAL_DIscord/GitpullNaufal/PakaiDynamicLib/MiniAudioCompile/MiniAudioStandAlone/Android/AndroidStudio/app/.cxx/Debug/6j6m5y5x/armeabi-v7a",
+		"source" : "D:/Imandana/Project/NAUFAL_DIscord/GitpullNaufal/PakaiDynamicLib/MiniAudioCompile/MiniAudioStandAlone/Android/AndroidStudio/app"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

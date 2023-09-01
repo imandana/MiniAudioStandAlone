@@ -1,0 +1,39 @@
+{
+  "buildFiles": [
+    "D:\\Imandana\\Project\\NAUFAL_DIscord\\GitpullNaufal\\PakaiDynamicLib\\MiniAudioCompile\\MiniAudioStandAlone\\Android\\AndroidStudio\\app\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "E:\\Imandana\\ProgramFIles\\AndroidSDK\\SDK\\cmake\\3.22.1\\bin\\ninja.exe",
+      "-C",
+      "D:\\Imandana\\Project\\NAUFAL_DIscord\\GitpullNaufal\\PakaiDynamicLib\\MiniAudioCompile\\MiniAudioStandAlone\\Android\\AndroidStudio\\app\\.cxx\\RelWithDebInfo\\6r6r3617\\arm64-v8a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "E:\\Imandana\\ProgramFIles\\AndroidSDK\\SDK\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-C",
+    "D:\\Imandana\\Project\\NAUFAL_DIscord\\GitpullNaufal\\PakaiDynamicLib\\MiniAudioCompile\\MiniAudioStandAlone\\Android\\AndroidStudio\\app\\.cxx\\RelWithDebInfo\\6r6r3617\\arm64-v8a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "cpufeatures::@6890427a1f51a3e7e1df": {
+      "artifactName": "cpufeatures",
+      "abi": "arm64-v8a",
+      "output": "D:\\Imandana\\Project\\NAUFAL_DIscord\\GitpullNaufal\\PakaiDynamicLib\\MiniAudioCompile\\MiniAudioStandAlone\\Android\\AndroidStudio\\app\\.cxx\\RelWithDebInfo\\6r6r3617\\arm64-v8a\\libcpufeatures.a",
+      "runtimeFiles": []
+    },
+    "androidAPI::@6890427a1f51a3e7e1df": {
+      "artifactName": "androidAPI",
+      "abi": "arm64-v8a",
+      "output": "D:\\Imandana\\Project\\NAUFAL_DIscord\\GitpullNaufal\\PakaiDynamicLib\\MiniAudioCompile\\MiniAudioStandAlone\\Android\\AndroidStudio\\app\\build\\intermediates\\cxx\\RelWithDebInfo\\6r6r3617\\obj\\arm64-v8a\\libandroidAPI.so",
+      "runtimeFiles": [
+        "E:\\Imandana\\ProgramFIles\\AndroidSDK\\SDK\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\aarch64-linux-android\\21\\liblog.so",
+        "E:\\Imandana\\ProgramFIles\\AndroidSDK\\SDK\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\aarch64-linux-android\\21\\libandroid.so",
+        "E:\\Imandana\\ProgramFIles\\AndroidSDK\\SDK\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\aarch64-linux-android\\21\\libOpenSLES.so",
+        "E:\\Imandana\\ProgramFIles\\AndroidSDK\\SDK\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\aarch64-linux-android\\21\\libc.so",
+        "E:\\Imandana\\ProgramFIles\\AndroidSDK\\SDK\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\aarch64-linux-android\\21\\libm.so"
+      ]
+    }
+  }
+}

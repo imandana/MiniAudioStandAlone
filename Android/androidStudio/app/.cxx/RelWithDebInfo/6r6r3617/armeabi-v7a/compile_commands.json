@@ -1,0 +1,12 @@
+[
+{
+  "directory": "D:/Imandana/Project/NAUFAL_DIscord/GitpullNaufal/PakaiDynamicLib/MiniAudioCompile/MiniAudioStandAlone/Android/AndroidStudio/app/.cxx/RelWithDebInfo/6r6r3617/armeabi-v7a",
+  "command": "E:\\Imandana\\ProgramFIles\\AndroidSDK\\SDK\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe --target=armv7-none-linux-androideabi21 --sysroot=E:/Imandana/ProgramFIles/AndroidSDK/SDK/ndk/23.1.7779620/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DPLATFORM_ANDROID -DSUPPORT_MODULE_RAUDIO -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -fexceptions -O2 -g -DNDEBUG -fPIC -o CMakeFiles\\cpufeatures.dir\\f3a1ed0ac725d0b0c17c2b99a7d9260d\\cpu-features.c.o -c E:\\Imandana\\ProgramFIles\\AndroidSDK\\SDK\\ndk\\23.1.7779620\\sources\\android\\cpufeatures\\cpu-features.c",
+  "file": "E:\\Imandana\\ProgramFIles\\AndroidSDK\\SDK\\ndk\\23.1.7779620\\sources\\android\\cpufeatures\\cpu-features.c"
+},
+{
+  "directory": "D:/Imandana/Project/NAUFAL_DIscord/GitpullNaufal/PakaiDynamicLib/MiniAudioCompile/MiniAudioStandAlone/Android/AndroidStudio/app/.cxx/RelWithDebInfo/6r6r3617/armeabi-v7a",
+  "command": "E:\\Imandana\\ProgramFIles\\AndroidSDK\\SDK\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe --target=armv7-none-linux-androideabi21 --sysroot=E:/Imandana/ProgramFIles/AndroidSDK/SDK/ndk/23.1.7779620/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DPLATFORM_ANDROID -DSUPPORT_MODULE_RAUDIO -DandroidAPI_EXPORTS -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -fexceptions -O2 -g -DNDEBUG -fPIC -o CMakeFiles\\androidAPI.dir\\src\\main\\cpp\\main.c.o -c D:\\Imandana\\Project\\NAUFAL_DIscord\\GitpullNaufal\\PakaiDynamicLib\\MiniAudioCompile\\MiniAudioStandAlone\\Android\\AndroidStudio\\app\\src\\main\\cpp\\main.c",
+  "file": "D:\\Imandana\\Project\\NAUFAL_DIscord\\GitpullNaufal\\PakaiDynamicLib\\MiniAudioCompile\\MiniAudioStandAlone\\Android\\AndroidStudio\\app\\src\\main\\cpp\\main.c"
+}
+]

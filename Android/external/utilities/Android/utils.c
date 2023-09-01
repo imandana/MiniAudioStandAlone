@@ -65,7 +65,7 @@
     #include "config.h"                   // Defines module configuration flags
 #endif
 
-#include "utils.h"
+//#include "utils.h"
 
 #if defined(PLATFORM_ANDROID)
     #include <errno.h>                  // Required for: Android error types
@@ -520,6 +520,7 @@ void InitAssetManager(AAssetManager *manager, const char *dataPath)
 // Ref: https://developer.android.com/ndk/reference/group/asset
 FILE *android_fopen(const char *fileName, const char *mode)
 {
+	TRACELOG(LOG_WARNING, "FILEIO: android_fopen");
     if (mode[0] == 'w')
     {
         // fopen() is mapped to android_fopen() that only grants read access to
@@ -533,8 +534,10 @@ FILE *android_fopen(const char *fileName, const char *mode)
     else
     {
         // NOTE: AAsset provides access to read-only asset
+		TRACELOG(LOG_WARNING, "FILEIO: AAsset *asset = AAssetManager_open");
         AAsset *asset = AAssetManager_open(assetManager, fileName, AASSET_MODE_UNKNOWN);
 
+		TRACELOG(LOG_WARNING, "FILEIO: asset != NULL");
         if (asset != NULL)
         {
             // Get pointer to file in the assets
@@ -542,8 +545,14 @@ FILE *android_fopen(const char *fileName, const char *mode)
         }
         else
         {
+			TRACELOG(LOG_WARNING, "FILEIO: asset == NULL");
             #undef fopen
             // Just do a regular open if file is not found in the assets
+			TRACELOG(LOG_INFO, internalDataPath);
+			TRACELOG(LOG_INFO, fileName);
+			TRACELOG(LOG_INFO, TextFormat("%s/%s", internalDataPath, fileName));
+			
+
             return fopen(TextFormat("%s/%s", internalDataPath, fileName), mode);
             #define fopen(name, mode) android_fopen(name, mode)
         }

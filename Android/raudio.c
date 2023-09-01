@@ -106,7 +106,7 @@
     #endif
 	
 	#if defined(PLATFORM_ANDROID)
-		#include "external/utilities/UTILS/utils.h"          // Required for: fopen() Android mapping
+		#include "external/utilities/Android/utils.h"          // Required for: fopen() Android mapping
 	#endif 
 	
 	#if defined(PLATFORM_IOS)

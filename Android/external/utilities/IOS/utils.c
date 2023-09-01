@@ -234,6 +234,27 @@ static const char *GetFileExtension(const char *fileName)
     return dot;
 }
 
+// String pointer reverse break: returns right-most occurrence of charset in s
+static const char *strprbrk(const char *s, const char *charset)
+{
+    const char *latestMatch = NULL;
+    for (; s = strpbrk(s, charset), s != NULL; latestMatch = s++) { }
+    return latestMatch;
+}
+
+
+// Get pointer to filename for a path string
+const char *GetFileName(const char *filePath)
+{
+    const char *fileName = NULL;
+    if (filePath != NULL) fileName = strprbrk(filePath, "\\/");
+
+    if (!fileName) return filePath;
+
+    return fileName + 1;
+}
+
+
 // Get filename string without extension (uses static string)
 const char *GetFileNameWithoutExt(const char *filePath)
 {
