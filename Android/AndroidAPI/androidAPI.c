@@ -153,9 +153,10 @@ Java_com_jenggotmalam_MiniAudioPlayer_InitAssetManagerMini(JNIEnv *env, jobject 
 		const char *path = (*env)->GetStringUTFChars( env, pathObj , NULL ) ;
 	 
 		LOGI("InitAssetManager(mgr, path); ");
+		
 		InitAssetManager(mgr, path);
  
-		(*env)->ReleaseStringUTFChars(env, pathObj, path);
+		//(*env)->ReleaseStringUTFChars(env, pathObj, path);
 
 }
  

@@ -520,6 +520,7 @@ void InitAssetManager(AAssetManager *manager, const char *dataPath)
 // Ref: https://developer.android.com/ndk/reference/group/asset
 FILE *android_fopen(const char *fileName, const char *mode)
 {
+	TRACELOG(LOG_WARNING, "FILEIO: android_fopen");
     if (mode[0] == 'w')
     {
         // fopen() is mapped to android_fopen() that only grants read access to

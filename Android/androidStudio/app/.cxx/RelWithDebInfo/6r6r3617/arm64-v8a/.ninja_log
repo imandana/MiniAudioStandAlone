@@ -1,3 +1,5 @@
 # ninja log v5
-1	18923	7152532172019901	CMakeFiles/androidAPI.dir/src/main/cpp/main.c.o	312731177db31e99
-18925	19184	7152532174469684	../../../../build/intermediates/cxx/RelWithDebInfo/6r6r3617/obj/arm64-v8a/libandroidAPI.so	c1e998fdcb5d1a7f
+0	21807	7152938161403756	CMakeFiles/androidAPI.dir/src/main/cpp/main.c.o	312731177db31e99
+21879	24095	7152938185869586	../../../../build/intermediates/cxx/RelWithDebInfo/6r6r3617/obj/arm64-v8a/libandroidAPI.so	c1e998fdcb5d1a7f
+2	17526	7152969139951627	CMakeFiles/androidAPI.dir/src/main/cpp/main.c.o	312731177db31e99
+17527	17732	7152969141835947	../../../../build/intermediates/cxx/RelWithDebInfo/6r6r3617/obj/arm64-v8a/libandroidAPI.so	c1e998fdcb5d1a7f
