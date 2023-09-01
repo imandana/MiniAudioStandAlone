@@ -1,3 +1,3 @@
 # ninja log v5
-0	5544	7150828163878585	CMakeFiles/androidAPI.dir/src/main/cpp/main.c.o	eeae6b92b01b97e0
-5546	5794	7150828166328801	../../../../build/intermediates/cxx/Debug/6j6m5y5x/obj/armeabi-v7a/libandroidAPI.so	b2bc4098c72bb3f4
+1	4752	7152531902056133	CMakeFiles/androidAPI.dir/src/main/cpp/main.c.o	eeae6b92b01b97e0
+4754	4906	7152531903536498	../../../../build/intermediates/cxx/Debug/6j6m5y5x/obj/armeabi-v7a/libandroidAPI.so	b2bc4098c72bb3f4
