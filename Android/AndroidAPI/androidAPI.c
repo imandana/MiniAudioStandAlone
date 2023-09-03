@@ -217,6 +217,17 @@ Java_com_jenggotmalam_MiniAudioPlayer_SetVolumeForMusic(JNIEnv *env, jobject obj
 	SetMusicVolume( musicListTogether.music[ pos ], vol );
 }
 
+JNIEXPORT void JNICALL
+Java_com_jenggotmalam_MiniAudioPlayer_ResetListAndUnload(JNIEnv *env, jobject instance)
+{
+	for(int i = 0; i < musicListTogether.count; i++)
+	{				
+		UnloadMusicStream( musicListTogether.music[ musicListTogether.indexToPlay[ i ] ] );
+	}
+	
+	musicListTogether.count = 0;
+}
+
 
 JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved) {
     JNIEnv* env;

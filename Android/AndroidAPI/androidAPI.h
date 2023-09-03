@@ -73,6 +73,9 @@ Java_com_jenggotmalam_MiniAudioPlayer_RemoveMusicStream(JNIEnv *env, jobject obj
 JNIEXPORT void JNICALL
 Java_com_jenggotmalam_MiniAudioPlayer_SetVolumeForMusic(JNIEnv *env, jobject obj, jint pos, jfloat vol) ;
 
+JNIEXPORT void JNICALL
+Java_com_jenggotmalam_MiniAudioPlayer_ResetList(JNIEnv *env, jobject instance);
+
 
 ////////////////
 JNIEXPORT void JNICALL
