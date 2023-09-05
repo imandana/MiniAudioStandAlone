@@ -31,6 +31,7 @@ void ExecutePlayer()
 				// for race condition
 				if ( isPlaying == 0 ) break;
 				UpdateMusicStream( musicListTogether.music[ musicListTogether.indexToPlay[ i ] ] );
+				currTimePos = GetMusicTimePlayed( musicListTogether.music[ musicListTogether.indexToPlay[ i ] ] ) / musicLegth ;
 			}
 			
 			setPitchReady = 1;
@@ -65,6 +66,11 @@ void AddMusic(const char* path)
 	
 	musicListTogether.music[ musicListTogether.indexToPlay[ musicListTogether.count ] ] = LoadMusicStream( cStr );
 	SetMusicVolume( musicListTogether.music[ musicListTogether.indexToPlay[ musicListTogether.count ] ], 1.0f );
+	
+	musicLegth = GetMusicTimeLength( musicListTogether.music[ musicListTogether.indexToPlay[ musicListTogether.count ] ] );
+	SeekMusicStream( musicListTogether.music[ musicListTogether.indexToPlay[ musicListTogether.count ] ], currTimePos * musicLegth );
+	
+	
 	musicListTogether.count++;
 	
 	/// 
