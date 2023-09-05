@@ -54,6 +54,7 @@ void ExecutePlayer()
 				// for race condition
 				if ( isPlaying == 0 ) break;
 				UpdateMusicStream( musicListTogether.music[ musicListTogether.indexToPlay[ i ] ] );
+				currTimePos = GetMusicTimePlayed( musicListTogether.music[ musicListTogether.indexToPlay[ i ] ] ) / musicLegth ;
 			}
 			
 			setPitchReady = 1;
@@ -173,6 +174,9 @@ Java_com_jenggotmalam_MiniAudioPlayer_AddMusicStream(JNIEnv *env, jobject obj,  
 	LOGI("ILoadMusicStream( str ); ");
 	musicListTogether.music[ musicListTogether.indexToPlay[ musicListTogether.count ] ] = LoadMusicStream( str );
 	
+	musicLegth = GetMusicTimeLength( musicListTogether.music[ musicListTogether.indexToPlay[ musicListTogether.count ] ] );
+	SeekMusicStream( musicListTogether.music[ musicListTogether.indexToPlay[ musicListTogether.count ] ], currTimePos * musicLegth );
+	
 	musicListTogether.count++;
 	
 	LOGI("ReleaseStringUTFChars(env, pathName, str); ");
@@ -189,6 +193,9 @@ Java_com_jenggotmalam_MiniAudioPlayer_AddMusicStreamFromStorage(JNIEnv *env, job
 	
 	LOGI("ILoadMusicStream( str ); ");
 	musicListTogether.music[ musicListTogether.indexToPlay[ musicListTogether.count ] ] = LoadMusicStream( str );
+	
+	musicLegth = GetMusicTimeLength( musicListTogether.music[ musicListTogether.indexToPlay[ musicListTogether.count ] ] );
+	SeekMusicStream( musicListTogether.music[ musicListTogether.indexToPlay[ musicListTogether.count ] ], currTimePos * musicLegth );
 	
 	musicListTogether.count++;
 	

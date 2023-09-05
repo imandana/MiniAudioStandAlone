@@ -31,7 +31,8 @@ int isClosed = 0;
 int isPlaying = 0;
 int setPitchReady = 0;
 //int pitchValue = 0;
-
+float currTimePos = 0.0f;
+float musicLegth  = 1.0f;
 
 /// Using this for dynamic music load, but the MAX is fixed size
 struct MusicListTogether
@@ -43,6 +44,7 @@ struct MusicListTogether
 	int count; /// For looping
 	
 };
+
 
 struct MusicListTogether musicListTogether;
 
