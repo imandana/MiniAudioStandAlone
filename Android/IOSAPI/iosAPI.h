@@ -6,6 +6,7 @@
 #include <sys/types.h>
 
 #include "../external/utilities/IOS/utils.h"
+#include "../external/utilities/IOS/utils.c"
 
 #include "../raudio.h"
 #include "../raudio.c"
