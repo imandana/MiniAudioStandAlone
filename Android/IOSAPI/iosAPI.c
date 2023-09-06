@@ -70,7 +70,6 @@ void AddMusic(const char* path)
 	musicLegth = GetMusicTimeLength( musicListTogether.music[ musicListTogether.indexToPlay[ musicListTogether.count ] ] );
 	SeekMusicStream( musicListTogether.music[ musicListTogether.indexToPlay[ musicListTogether.count ] ], currTimePos * musicLegth );
 	
-	
 	musicListTogether.count++;
 	
 	/// 
