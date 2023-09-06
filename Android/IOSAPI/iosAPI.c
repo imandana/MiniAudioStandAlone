@@ -73,7 +73,7 @@ void AddMusic(const char* path)
 	musicListTogether.count++;
 	
 	/// 
-	id objects[] = {pathIOS1 , musicListTogether.count - 1 };
+	id objects[] = {pathIOS1 , @(musicListTogether.count - 1) };
 	NSUInteger count = sizeof(objects) / sizeof(id);
 	array = [NSArray arrayWithObjects:objects count:count];
 	
