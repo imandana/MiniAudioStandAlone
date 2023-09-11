@@ -89,7 +89,6 @@ void StartPlayer()
 	//isPlaying = 1;
 
 	StopPlayerResume();
-	ResumePlayer();
 	
 	for(int i = 0; i < musicListTogether.count; i++)
 	{				
@@ -123,6 +122,8 @@ void StopPlayerResume()
 		{				
 			StopMusicStream( musicListTogether.music[ musicListTogether.indexToPlay[ i ] ] );
 		}
+		
+		ResumePlayer();
 }
 
 void StopPlayer()
