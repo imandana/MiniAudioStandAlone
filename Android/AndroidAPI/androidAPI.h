@@ -27,7 +27,6 @@
 JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved);
 
 int isClosed = 0;
-//int pauseMusic = 0;
 int isPlaying = 0;
 int setPitchReady = 0;
 //int pitchValue = 0;
@@ -55,6 +54,7 @@ void SetPitchAll( float );
 
 void StartPlayer();
 void StopPlayer();
+void StopPlayerResume();
 void PausePlayer();
 void ResumePlayer();
 
