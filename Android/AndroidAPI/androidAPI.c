@@ -86,9 +86,11 @@ void SetPitchAll( float pitch)
 void StartPlayer()
 {
 	// Stop First
-	//isPlaying = 1;
-
-	StopPlayerResume();
+	if( isNewMusicList )
+	{
+		StopPlayerResume();
+		isNewMusicList = 0;
+	}
 	
 	for(int i = 0; i < musicListTogether.count; i++)
 	{				
@@ -100,36 +102,36 @@ void StartPlayer()
 
 void ResumePlayer()
 {
-	for(int i = 0; i < musicListTogether.count; i++)
+	if( isPlaying == 0 && isNewMusicList )
 	{
-		SeekMusicStream( musicListTogether.music[ musicListTogether.indexToPlay[ i ] ], currTimePos * 
-							GetMusicTimeLength( musicListTogether.music[ musicListTogether.indexToPlay[ i ] ] ) );
+		StartPlayer();
 	}
-/* 	if( isPlaying == 0 )
+	else if( isPlaying == 0 )
 	{
 		for(int i = 0; i < musicListTogether.count; i++)
 		{				
 			ResumeMusicStream( musicListTogether.music[ musicListTogether.indexToPlay[ i ] ] );
 		}
 		isPlaying = 1;
-	} */
+	}
 }
 
 void StopPlayerResume()
 {
 		isPlaying = 0;
+
+		StopPlayer();
 		for(int i = 0; i < musicListTogether.count; i++)
-		{				
-			StopMusicStream( musicListTogether.music[ musicListTogether.indexToPlay[ i ] ] );
+		{
+			SeekMusicStream( musicListTogether.music[ musicListTogether.indexToPlay[ i ] ], currTimePos * 
+								GetMusicTimeLength( musicListTogether.music[ musicListTogether.indexToPlay[ i ] ] ) );
 		}
-		
-		ResumePlayer();
 }
 
 void StopPlayer()
 {
 		isPlaying = 0;
-		currTimePos = 0.0f;
+		isNewMusicList = 0;
 		for(int i = 0; i < musicListTogether.count; i++)
 		{				
 			StopMusicStream( musicListTogether.music[ musicListTogether.indexToPlay[ i ] ] );
@@ -192,9 +194,8 @@ Java_com_jenggotmalam_MiniAudioPlayer_AddMusicStream(JNIEnv *env, jobject obj,  
 	LOGI("ILoadMusicStream( str ); ");
 	musicListTogether.music[ musicListTogether.indexToPlay[ musicListTogether.count ] ] = LoadMusicStream( str );
 	
-	//musicLegth = GetMusicTimeLength( musicListTogether.music[ musicListTogether.indexToPlay[ musicListTogether.count ] ] );
+	isNewMusicList = 1;
 	
-
 	musicListTogether.count++;
 	
 	LOGI("musicLegth : %f", musicLegth);
@@ -214,6 +215,7 @@ Java_com_jenggotmalam_MiniAudioPlayer_AddMusicStreamFromStorage(JNIEnv *env, job
 	LOGI("ILoadMusicStream( str ); ");
 	musicListTogether.music[ musicListTogether.indexToPlay[ musicListTogether.count ] ] = LoadMusicStream( str );
 	
+	isNewMusicList = 1;
 
 	musicListTogether.count++;
 	

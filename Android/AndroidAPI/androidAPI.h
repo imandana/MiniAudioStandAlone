@@ -28,6 +28,7 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved);
 
 int isClosed = 0;
 int isPlaying = 0;
+int isNewMusicList = 0;
 int setPitchReady = 0;
 //int pitchValue = 0;
 float currTimePos = 0.0f;
