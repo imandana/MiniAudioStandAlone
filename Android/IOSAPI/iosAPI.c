@@ -1,6 +1,6 @@
 #include "iosAPI.h"
 
-void InitDeviceMiniaudio()
+void InitDeviceMiniaudio(NSString *appDirectory)
 {
 	InitAudioDevice();
 	
@@ -9,8 +9,6 @@ void InitDeviceMiniaudio()
 	{
 		musicListTogether.indexToPlay[ i ] = i;
 	}
-	/// And the audio file
-
 }
 
 /* NSSound *player = [[NSSound alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Sound" ofType:@"mp3"] byReference:NO];
@@ -31,7 +29,8 @@ void ExecutePlayer()
 				// for race condition
 				if ( isPlaying == 0 ) break;
 				UpdateMusicStream( musicListTogether.music[ musicListTogether.indexToPlay[ i ] ] );
-				currTimePos = GetMusicTimePlayed( musicListTogether.music[ musicListTogether.indexToPlay[ i ] ] ) / musicLegth ;
+				currTimePos = GetMusicTimePlayed( musicListTogether.music[ musicListTogether.indexToPlay[ i ] ] ) / 
+								GetMusicTimeLength( musicListTogether.music[ musicListTogether.indexToPlay[ i ] ] );
 			}
 			
 			setPitchReady = 1;
@@ -39,69 +38,62 @@ void ExecutePlayer()
 		}
 		
 		setPitchReady = 1;
-		// prevent processor halt
 		usleep( 600000 ); // 0.6 seconds
 	}
 }
 
-void AddMusic(const char* path)
+void AddMusic(const char* fileName)
 {
-	if( musicListTogether.count > NUM_OF_MUSIC)
-		return;
-	
-	//NSString* databasePathFromApp = [[NSBundle mainBundle] pathForResource:@"triggers" ofType:@"sql"];
-	
-	NSString *NSstr = [NSString stringWithUTF8String:path];
-	NSLog(NSstr);
+    if (musicListTogether.count > NUM_OF_MUSIC)
+        return;
 
-	NSString *pathIOS1 = [[NSBundle mainBundle] pathForResource:NSstr ofType:nil];
-	NSLog(pathIOS1);	
-	
-/* 	NSString *pathIOS = [[NSBundle mainBundle] pathForResource:NSstr ofType:@"mp3"];
-	
-	NSLog(pathIOS);
-	NSLog(@"/n"); */
-	
-	const char* cStr = [pathIOS1 UTF8String];
-	
-	musicListTogether.music[ musicListTogether.indexToPlay[ musicListTogether.count ] ] = LoadMusicStream( cStr );
-	SetMusicVolume( musicListTogether.music[ musicListTogether.indexToPlay[ musicListTogether.count ] ], 1.0f );
-	
-	musicLegth = GetMusicTimeLength( musicListTogether.music[ musicListTogether.indexToPlay[ musicListTogether.count ] ] );
-	SeekMusicStream( musicListTogether.music[ musicListTogether.indexToPlay[ musicListTogether.count ] ], currTimePos * musicLegth );
-	
+    NSString *NSstr = [NSString stringWithUTF8String:fileName];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
+    NSString *applicationSupportPath = [paths firstObject];
+    NSString *audioFilePath = [applicationSupportPath stringByAppendingPathComponent:NSstr];
+    NSLog(@"Audio file path: %@", audioFilePath);
+    musicListTogether.music[musicListTogether.indexToPlay[musicListTogether.count]] = LoadMusicStream([audioFilePath UTF8String]);
+    SetMusicVolume(musicListTogether.music[musicListTogether.indexToPlay[musicListTogether.count]], 1.0f);
+	//SeekMusicStream( musicListTogether.music[ musicListTogether.indexToPlay[ musicListTogether.count ] ], 70.0f );
+	isNewMusicList = 1;
 	musicListTogether.count++;
-	
-	/// 
-	id objects[] = {pathIOS1 , @(musicListTogether.count - 1) };
-	NSUInteger count = sizeof(objects) / sizeof(id);
-	array = [NSArray arrayWithObjects:objects count:count];
-	
+    NSDictionary *entry = @{@"path": audioFilePath, @"index": @(musicListTogether.count - 1)};
+    if (!array) {
+        array = [NSMutableArray array];
+    }
+    [array addObject:entry];
 }
+
+
+
 
 void RemoveMusicStream( int pos )
 {
-	// swap
-	int temp = musicListTogether.indexToPlay[ musicListTogether.count - 1 ] ;	// last data
+	int temp = musicListTogether.indexToPlay[ musicListTogether.count - 1 ] ;
 	
 	UnloadMusicStream( musicListTogether.music[ musicListTogether.indexToPlay[ pos ] ] );
 	musicListTogether.indexToPlay[ musicListTogether.count - 1 ] = musicListTogether.indexToPlay[ pos ];
 	musicListTogether.indexToPlay[ pos ] = temp;
 
 	musicListTogether.count--;
-	
 	///
 	//array = [NSArray arrayWithObjects:objects count:count];
 }
 
-void SetVolumeForMusic(const char* name, float vol )
+void SetVolumeForMusic(NSInteger index, float vol)
 {
-	NSString *NSstr = [NSString stringWithUTF8String:name];
-	
-	int posMusic = [array valueForKey:NSstr];
-	SetMusicVolume( musicListTogether.music[ posMusic ], vol );
-	
+    if (index >= 0 && index < [array count]) {
+        NSDictionary *entry = array[index];
+        NSInteger posMusic = [entry[@"index"] integerValue];
+        SetMusicVolume(musicListTogether.music[posMusic], vol);
+    } else {
+        NSLog(@"Invalid index: %ld", (long)index);
+    }
 }
+
+
+
+
 
 void SetPitchAll( float pitch )
 {
@@ -117,12 +109,28 @@ void SetPitchAll( float pitch )
 		}
 	}
 }
+void StopPlayerResume()
+{
+		isPlaying = 0;
+
+		StopPlayer();
+		for(int i = 0; i < musicListTogether.count; i++)
+		{
+			SeekMusicStream( musicListTogether.music[ musicListTogether.indexToPlay[ i ] ], currTimePos * 
+								GetMusicTimeLength( musicListTogether.music[ musicListTogether.indexToPlay[ i ] ] ) );
+		}
+}
+
 
 void StartPlayer()
 {
 	// Stop First
-	isPlaying = 1;
-	StopPlayer();
+	if( isNewMusicList )
+	{
+		StopPlayerResume();
+		isNewMusicList = 0;
+	}
+	
 	for(int i = 0; i < musicListTogether.count; i++)
 	{				
 		PlayMusicStream( musicListTogether.music[ musicListTogether.indexToPlay[ i ] ] );
@@ -131,9 +139,25 @@ void StartPlayer()
 	isPlaying = 1;
 }
 
+void ResetList()
+{
+	StopPlayer();
+	
+	for(int i = 0; i < musicListTogether.count; i++)
+	{				
+		UnloadMusicStream( musicListTogether.music[ musicListTogether.indexToPlay[ i ] ] );
+	}
+	
+	musicListTogether.count = 0;
+}
+
 void ResumePlayer()
 {
-	if( isPlaying == 0 )
+	if( isPlaying == 0 && isNewMusicList )
+	{
+		StartPlayer();
+	}
+	else if( isPlaying == 0 )
 	{
 		for(int i = 0; i < musicListTogether.count; i++)
 		{				
@@ -142,6 +166,7 @@ void ResumePlayer()
 		isPlaying = 1;
 	}
 }
+
 
 void StopPlayer()
 {

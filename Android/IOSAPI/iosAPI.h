@@ -19,13 +19,14 @@ int isClosed = 0;
 //int pauseMusic = 0;
 int isPlaying = 0;
 int setPitchReady = 0;
+int isNewMusicList = 0;
 //int pitchValue = 0;
 float currTimePos = 0.0f;
 float musicLegth  = 1.0f;
 
 
 /// IOS
-NSArray *array;
+NSMutableArray *array;
 ////
 
 
@@ -52,13 +53,13 @@ void StartPlayer();
 void StopPlayer();
 void PausePlayer();
 void ResumePlayer();
-
 void CleanResource();
 
 //// IOS Special 
 void AddMusic(const char* path);
 void RemoveMusicStream( int pos );
-void SetVolumeForMusic( const char* name, float vol );
+void SetVolumeForMusic(NSInteger index, float vol);
+
 
 #endif /// IOS_API_H
 
