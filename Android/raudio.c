@@ -110,7 +110,7 @@
 	#endif 
 	
 	#if defined(PLATFORM_IOS)
-		#include "external/utilities/UTILS/utils.h"          // Required for: IOS mapping
+		#include "external/utilities/IOS/utils.h"          // Required for: IOS mapping
 	#endif 
 #endif
 

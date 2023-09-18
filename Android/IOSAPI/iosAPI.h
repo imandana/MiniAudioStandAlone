@@ -4,14 +4,13 @@
 
 #include <string.h>
 #include <sys/types.h>
+#include <stdio.h>              // Required for: printf()
 
 #include "../external/utilities/IOS/utils.h"
 #include "../external/utilities/IOS/utils.c"
 
 #include "../raudio.h"
 #include "../raudio.c"
-
-#include <stdio.h>              // Required for: printf()
 
 #define NUM_OF_MUSIC	11
 
@@ -28,9 +27,6 @@ float musicLegth  = 1.0f;
 /// IOS
 NSMutableArray *array;
 ////
-
-
-
 /// Using this for dynamic music load, but the MAX is fixed size
 struct MusicListTogether
 {

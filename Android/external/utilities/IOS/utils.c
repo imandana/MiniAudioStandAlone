@@ -211,7 +211,7 @@ void MemFree(void *ptr)
 
 
 // Check file extension
-static bool IsFileExtension(const char *fileName, const char *ext)
+bool IsFileExtension(const char *fileName, const char *ext)
 {
     bool result = false;
     const char *fileExt;
@@ -225,7 +225,7 @@ static bool IsFileExtension(const char *fileName, const char *ext)
 }
 
 // Get pointer to extension for a filename string (includes the dot: .png)
-static const char *GetFileExtension(const char *fileName)
+const char *GetFileExtension(const char *fileName)
 {
     const char *dot = strrchr(fileName, '.');
 

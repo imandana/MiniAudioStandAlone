@@ -147,24 +147,24 @@ RLAPI void MemFree(void *ptr);                                    // Internal me
 
 
 // Files management functions
-RLAPI static unsigned char *LoadFileData(const char *fileName, unsigned int *bytesRead);       // Load file data as byte array (read)
-RLAPI static void UnloadFileData(unsigned char *data);                   // Unload file data allocated by LoadFileData()
-RLAPI static bool SaveFileData(const char *fileName, void *data, unsigned int bytesToWrite);   // Save data to file from byte array (write), returns true on success
-RLAPI static bool ExportDataAsCode(const char *data, unsigned int size, const char *fileName); // Export data to code (.h), returns true on success
-RLAPI static char *LoadFileText(const char *fileName);                   // Load text data from file (read), returns a '\0' terminated string
-RLAPI static void UnloadFileText(char *text);                            // Unload file text data allocated by LoadFileText()
-RLAPI static bool SaveFileText(const char *fileName, char *text);        // Save text data to file (write), string must be '\0' terminated, returns true on success
-RLAPI static bool FileExists(const char *fileName);                      // Check if file exists
-RLAPI static bool DirectoryExists(const char *dirPath);                  // Check if a directory path exists
-RLAPI static bool IsFileExtension(const char *fileName, const char *ext); // Check file extension (including point: .png, .wav)
-RLAPI static int GetFileLength(const char *fileName);                    // Get file length in bytes (NOTE: GetFileSize() conflicts with windows.h)
-RLAPI static const char *GetFileExtension(const char *fileName);         // Get pointer to extension for a filename string (includes dot: '.png')
-RLAPI static const char *GetFileName(const char *filePath);              // Get pointer to filename for a path string
-RLAPI static const char *GetFileNameWithoutExt(const char *filePath);    // Get filename string without extension (uses static string)
-RLAPI static const char *GetDirectoryPath(const char *filePath);         // Get full path for a given fileName with path (uses static string)
-RLAPI static const char *GetPrevDirectoryPath(const char *dirPath);      // Get previous directory path for a given path (uses static string)
-RLAPI static const char *GetWorkingDirectory(void);                      // Get current working directory (uses static string)
-RLAPI static const char *GetApplicationDirectory(void);                  // Get the directory if the running application (uses static string)
+RLAPI  unsigned char *LoadFileData(const char *fileName, unsigned int *bytesRead);       // Load file data as byte array (read)
+RLAPI  void UnloadFileData(unsigned char *data);                   // Unload file data allocated by LoadFileData()
+RLAPI  bool SaveFileData(const char *fileName, void *data, unsigned int bytesToWrite);   // Save data to file from byte array (write), returns true on success
+RLAPI  bool ExportDataAsCode(const char *data, unsigned int size, const char *fileName); // Export data to code (.h), returns true on success
+RLAPI  char *LoadFileText(const char *fileName);                   // Load text data from file (read), returns a '\0' terminated string
+RLAPI  void UnloadFileText(char *text);                            // Unload file text data allocated by LoadFileText()
+RLAPI  bool SaveFileText(const char *fileName, char *text);        // Save text data to file (write), string must be '\0' terminated, returns true on success
+RLAPI  bool FileExists(const char *fileName);                      // Check if file exists
+RLAPI  bool DirectoryExists(const char *dirPath);                  // Check if a directory path exists
+RLAPI  bool IsFileExtension(const char *fileName, const char *ext); // Check file extension (including point: .png, .wav)
+RLAPI  int GetFileLength(const char *fileName);                    // Get file length in bytes (NOTE: GetFileSize() conflicts with windows.h)
+RLAPI  const char *GetFileExtension(const char *fileName);         // Get pointer to extension for a filename string (includes dot: '.png')
+RLAPI  const char *GetFileName(const char *filePath);              // Get pointer to filename for a path string
+RLAPI  const char *GetFileNameWithoutExt(const char *filePath);    // Get filename string without extension (uses  string)
+RLAPI  const char *GetDirectoryPath(const char *filePath);         // Get full path for a given fileName with path (uses  string)
+RLAPI  const char *GetPrevDirectoryPath(const char *dirPath);      // Get previous directory path for a given path (uses  string)
+RLAPI  const char *GetWorkingDirectory(void);                      // Get current working directory (uses  string)
+RLAPI  const char *GetApplicationDirectory(void);                  // Get the directory if the running application (uses  string)
 
 
 // Text strings management functions (no UTF-8 strings, only byte chars)
