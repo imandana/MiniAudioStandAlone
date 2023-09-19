@@ -1,5 +1,16 @@
 #include "iosAPI.h"
 
+static int isClosed = 0;
+//int pauseMusic = 0;
+static int isPlaying = 0;
+static int setPitchReady = 0;
+static int isNewMusicList = 0;
+//int pitchValue = 0;
+static float currTimePos = 0.0f;
+static float musicLegth  = 1.0f;
+
+
+
 void InitDeviceMiniaudio(NSString *appDirectory)
 {
 	InitAudioDevice();
