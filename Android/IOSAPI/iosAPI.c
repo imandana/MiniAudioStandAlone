@@ -11,7 +11,7 @@ static float musicLegth  = 1.0f;
 
 
 
-void InitDeviceMiniaudio(NSString *appDirectory)
+void InitDeviceMiniaudio()
 {
 	InitAudioDevice();
 	
